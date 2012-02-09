@@ -1,4 +1,5 @@
-<h1>List Users</h1>
-<% @users.each do |user| %>
-  <div class="user"><%= user.name %></div>
-<% end %>
+<h1>Profile for User <%= @user.id %></h1>
+  <div class="user">Name: <%= @user.fname + ' ' + @user.lname %></div>
+  <div class="username">Username: <%= @user.username %></div>
+  <div class="date">Create Date: <%= @user.create_date %></div>
+

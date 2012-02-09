@@ -1,4 +1,5 @@
 <h1>Listing of all Users</h1>
+<%= link_to 'Create New User', new_user_path()%>
 <% @users.each do |user| %>
   <div class="user"><%= link_to user.fname + ' ' + user.lname, user_path(user) %></div>
 <% end %>
