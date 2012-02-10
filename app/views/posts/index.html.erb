@@ -1,0 +1,10 @@
+<div class="btnCreate" id="createPost">
+  <%= link_to 'New post', new_post_path()%>
+</div>
+<% if @posts.empty? %>
+<div class="emptyMessage">There are no posts</div>
+<% else %>
+  <%= @posts.each do |post| %>
+    <div class="postContainer"><%= post.post %></div>
+  <% end %>
+<% end %>
