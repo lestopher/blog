@@ -19,7 +19,7 @@
   
   <div class="field">
     <%= p.label 'Authored by' %><br/>
-    <%= p.text_field :username %>
+    <%= text_field_tag :username, params[:username]  %>
   </div>
   
   <div class="field">
