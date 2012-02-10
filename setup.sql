@@ -19,6 +19,7 @@ create_date DATE
 
 CREATE TABLE posts (
 id INTEGER PRIMARY KEY ASC,
+post_title varchar2(20),
 post BLOB,
 create_date DATE,
 user_id INTEGER,
