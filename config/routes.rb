@@ -42,6 +42,7 @@ Blog::Application.routes.draw do
   #   end
   
   resources :users
+  resources :posts
   
   # Sample resource route within a namespace:
   #   namespace :admin do
