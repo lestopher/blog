@@ -3,9 +3,10 @@ require 'digest'
 class UsersController < ApplicationController  
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find(:first,
+              :conditions => ['username = :u', {:u => params[:username]}])
     @posts = Post.find(:all, 
-              :conditions => ['user_id = :u', {:u => params[:id]}])    
+              :conditions => ['user_id = :u', {:u => @user.id}])    
   end
   
   def index
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user,
+        format.html { redirect_to('/' + @user.username,
                        :notice => 'Successfully created user.') }
         format.json { render :json => @user,
                        :status => :created, :location => @user }

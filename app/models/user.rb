@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   validates_presence_of :fname, :lname, :username, :password, :on => :create
   validates_uniqueness_of :username
   
-   before_save :encrypt_password
+  attr_accessor :encrypted_password
+  before_save :encrypt_password
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
     
     def encrypt_password
       self.salt = make_salt unless has_password?(password)
-      self.encrypted_password = encrypt(submitted_password)
+      self.encrypted_password = encrypt(password)
     end
     
     def encrypt(string)

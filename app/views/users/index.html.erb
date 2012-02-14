@@ -5,6 +5,6 @@
   <h1>There are currently no users in the system</h1>
 <% else %>
   <% @users.each do |user| %>
-    <div class="user"><%= link_to user.fname + ' ' + user.lname, user_path(user) %></div>
+    <div class="user"><%= link_to user.fname + ' ' + user.lname, user_posts_path(user.username) %></div>
   <% end %>
 <% end %>

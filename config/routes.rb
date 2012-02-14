@@ -48,6 +48,7 @@ Blog::Application.routes.draw do
   match 'signup'  => 'Users#new'
   match 'signin'  => 'Sessions#new'
   match 'signout' => 'Sessions#destroy'
+  match '/:username' => 'Users#show', :as => 'user_posts'
   
   # Sample resource route within a namespace:
   #   namespace :admin do
