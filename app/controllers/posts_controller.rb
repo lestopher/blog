@@ -22,11 +22,10 @@ class PostsController < ApplicationController
   end
   
   def create
-    user = User.where(
-            "username = :username",
-            { :username => params[:username] })
+    user = User.find(:first, 
+           :conditions => ['username = :u', {:u => params[:username]}])  
     @post = Post.new(params[:post])
-    @post.user_id = user
+    @post.user_id = user.id
     @post.create_date = Time.new.strftime('%Y-%m-%d')
     
     
