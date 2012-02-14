@@ -72,3 +72,30 @@ div.btnCreate {
   font-weight: bold;
   padding: 20px;
 }
+
+#authLinks {
+  line-height: 35px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #000;
+  width: 135px;
+  position: absolute;
+  top: 6px;
+  right: 0px;
+}
+
+/* Flash messages */
+.flashMsg.success {
+  line-height: 60px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #85FF5C;
+  border: 5px solid #509937;
+}
+.flashMsg.error {
+  line-height: 60px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #FF3333;
+  border: 5px solid #991F1F;
+}

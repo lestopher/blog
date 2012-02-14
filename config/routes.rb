@@ -42,9 +42,12 @@ Blog::Application.routes.draw do
   #   end
   
   resources :users
-  match 'signup' => 'Users#new'
   resources :posts
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
+  
+  match 'signup'  => 'Users#new'
+  match 'signin'  => 'Sessions#new'
+  match 'signout' => 'Sessions#destroy'
   
   # Sample resource route within a namespace:
   #   namespace :admin do
