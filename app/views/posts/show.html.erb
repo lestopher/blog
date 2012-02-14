@@ -2,5 +2,5 @@
 <div class="postContent">
   <%= @post.post %>
   <br/>
-  by User <%= @post.user_id %>
+  by <%= User.find(@post.user_id).username %>
   </div>

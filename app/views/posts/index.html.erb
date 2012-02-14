@@ -4,7 +4,13 @@
 <% if @posts.empty? %>
 <div class="emptyMessage">There are no posts</div>
 <% else %>
-  <%= @posts.each do |post| %>
-    <div class="postContainer"><%= post.post %></div>
+  <% @posts.each do |post| %>
+    <div class="postContainer">
+
+      <div class="postTitle">Title: <%= post.post_title %></div>
+      <div class="postAuthor">By: <%= User.find(post.user_id).username %></div>
+      <div class="postContent"><%= post.post %></div>
+     
+    </div>
   <% end %>
 <% end %>

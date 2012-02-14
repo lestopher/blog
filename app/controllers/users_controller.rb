@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.create_date = Time.new.strftime('%Y-%m-%d')
     
     respond_to do |format|
       if @user.save

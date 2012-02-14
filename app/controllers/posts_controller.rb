@@ -1,9 +1,4 @@
 class PostsController < ApplicationController
-  # before_filter :get_userId, :only => [:new]
-#   
-  # def get_userId
-    # @userId = User.find(params[:username]).id
-  # end
   
   def show
     @post = Post.find(params[:id])
@@ -17,7 +12,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     respond_to do |format|
       format.html #index.html.erb
-      format.json { render :json => @post }
+      format.json { render :json => @posts }
     end 
   end
   
@@ -26,7 +21,6 @@ class PostsController < ApplicationController
            :conditions => ['username = :u', {:u => params[:username]}])  
     @post = Post.new(params[:post])
     @post.user_id = user.id
-    @post.create_date = Time.new.strftime('%Y-%m-%d')
     
     
     respond_to do |format|

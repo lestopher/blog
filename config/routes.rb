@@ -42,7 +42,9 @@ Blog::Application.routes.draw do
   #   end
   
   resources :users
+  match 'signup' => 'Users#new'
   resources :posts
+  resources :sessions
   
   # Sample resource route within a namespace:
   #   namespace :admin do

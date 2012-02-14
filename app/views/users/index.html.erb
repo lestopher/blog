@@ -1,5 +1,10 @@
 <h1>Listing of all Users</h1>
-<%= link_to 'Create New User', new_user_path()%>
-<% @users.each do |user| %>
-  <div class="user"><%= link_to user.fname + ' ' + user.lname, user_path(user) %></div>
+ 
+<%= link_to 'Create New User', new_user_path() %>
+<% if @users.empty? %>
+  <h1>There are currently no users in the system</h1>
+<% else %>
+  <% @users.each do |user| %>
+    <div class="user"><%= link_to user.fname + ' ' + user.lname, user_path(user) %></div>
+  <% end %>
 <% end %>
