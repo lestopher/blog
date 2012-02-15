@@ -45,9 +45,10 @@ Blog::Application.routes.draw do
   resources :posts
   resources :sessions, :only => [:new, :create, :destroy]
   
-  match 'signup'  => 'Users#new'
-  match 'signin'  => 'Sessions#new'
-  match 'signout' => 'Sessions#destroy'
+  match '/signup'  => 'Users#new'
+  match '/signin'  => 'Sessions#new'
+  match '/signout' => 'Sessions#destroy'
+  match '/sessions' => 'Sessions#new'
   match '/:username' => 'Users#show', :as => 'user_posts'
   
   # Sample resource route within a namespace:

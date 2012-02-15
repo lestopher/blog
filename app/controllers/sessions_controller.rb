@@ -1,13 +1,15 @@
 class SessionsController < ApplicationController
+  before_filter :user_signed_in?, :only => [:delete]
+  
   def new
     @title = 'Sign in'
   end
   
   def create
     user = User.find(:first, 
-           :conditions => ['email = :e', {:e => params[:session][:email]}])
+           :conditions => ['email = :e', {:e => params[:email]}])
     
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to users_path, :notice => "Logged in!"
     else
@@ -17,7 +19,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:user_id] = nil
+    session.delete(:user_id)
     redirect_to users_path, notice => "Logged out!"
   end
 end
