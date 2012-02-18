@@ -3,10 +3,9 @@ require 'digest'
 class UsersController < ApplicationController  
   
   def show
-    @user = User.find(:first,
-              :conditions => ['username = :u', {:u => params[:username]}])
-    @posts = Post.find(:all, 
-              :conditions => ['user_id = :u', {:u => @user.id}])    
+    @user = User.find_by_username(params[:username])    
+    @posts = Post.find_all_by_user_id(@user.id)
+        
   end
   
   def index

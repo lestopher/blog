@@ -17,8 +17,9 @@ class PostsController < ApplicationController
   end
   
   def create
-    user = User.find(:first, 
-           :conditions => ['username = :u', {:u => params[:username]}])  
+    user = User.find_by_username(params[:username])
+    # user = User.find(:first, 
+           # :conditions => ['username = :u', {:u => params[:username]}])  
     @post = Post.new(params[:post])
     @post.user_id = user.id
     
