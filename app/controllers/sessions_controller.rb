@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      # :current_user
       redirect_to users_path, :notice => "Logged in!"
     else
       flash.now[:error] = "Invalid email or password"

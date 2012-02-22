@@ -1,5 +1,3 @@
-require 'digest'
-
 class UsersController < ApplicationController  
   
   def show

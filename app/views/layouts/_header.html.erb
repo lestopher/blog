@@ -1,3 +1,8 @@
+<% if user_signed_in? %>
+  <div id="welcomeUser">
+    Welcome <%= current_user.fname %>!
+   </div>
+<% end %>
 <div id="authLinks">
   <%= link_to 'Sign in', signin_path %> | <%= link_to 'Sign out', signout_path %>
 </div>
